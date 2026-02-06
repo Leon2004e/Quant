@@ -1,0 +1,119 @@
+
+
+=== START Ohcl_Data_Management @ 2026-01-31 13:01:19 UTC ===
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:25] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:25]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:28] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:28]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:28] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:28]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:31] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:31]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:31] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:31]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:35] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:35]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:35] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:35]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:37] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:37]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:37] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:37]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:40] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:40]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:40] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:40]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:42] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:42]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:42] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:42]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:45] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:45]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:45] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:45]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:46] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:46]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:46] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:46]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:49] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:49]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:49] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:49]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:51] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:51]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:51] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:51]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:53] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:53]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:53] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:53]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:55] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:55]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:55] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:55]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:57] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:01:57]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:01:57] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:01:57]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:02:29] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:02:29]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:02:29] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:02:29]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:02:31] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:02:31]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:02:31] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:02:31]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:02:33] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Q' is deprecated and will be removed in a future version, please use 'QE' instead.
+[2026-01-31 13:02:33]   out = d.resample(rule).agg(agg)
+[2026-01-31 13:02:33] C:\Users\Leon\Desktop\QUANT_SYSTEM_V2\1_Data_Center\Data_Operations\Ohcl_Data_Management.py:380: FutureWarning: 'Y' is deprecated and will be removed in a future version, please use 'YE' instead.
+[2026-01-31 13:02:33]   out = d.resample(rule).agg(agg)
