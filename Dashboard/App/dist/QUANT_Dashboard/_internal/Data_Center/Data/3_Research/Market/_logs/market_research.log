@@ -1,0 +1,33 @@
+2026-06-05 10:21:52,533 | INFO | QUANT_ROOT       = C:\Users\Leon\Desktop\QUANT
+2026-06-05 10:21:52,534 | INFO | INPUT_ROOT       = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl
+2026-06-05 10:21:52,534 | INFO | OUTPUT_ROOT      = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\3_Research\Market
+2026-06-05 10:21:52,534 | INFO | TARGET_TIMEFRAME = M15
+2026-06-05 10:21:52,542 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\AUDJPY.parquet
+2026-06-05 10:21:56,338 | INFO | OK AUDJPY rows_in=99997 rows_out=1085
+2026-06-05 10:21:56,340 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\AUDUSD.parquet
+2026-06-05 10:22:00,059 | INFO | OK AUDUSD rows_in=99991 rows_out=1085
+2026-06-05 10:22:00,059 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\EURGBP.parquet
+2026-06-05 10:22:03,748 | INFO | OK EURGBP rows_in=99997 rows_out=1085
+2026-06-05 10:22:03,748 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\EURUSD.parquet
+2026-06-05 10:22:07,383 | INFO | OK EURUSD rows_in=99997 rows_out=1085
+2026-06-05 10:22:07,383 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\GBPJPY.parquet
+2026-06-05 10:22:11,020 | INFO | OK GBPJPY rows_in=99991 rows_out=1085
+2026-06-05 10:22:11,020 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\GBPUSD.parquet
+2026-06-05 10:22:14,699 | INFO | OK GBPUSD rows_in=99997 rows_out=1085
+2026-06-05 10:22:14,700 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\NZDUSD.parquet
+2026-06-05 10:22:18,197 | INFO | OK NZDUSD rows_in=99991 rows_out=1085
+2026-06-05 10:22:18,197 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\US500.cash.parquet
+2026-06-05 10:22:21,946 | INFO | OK US500 rows_in=99991 rows_out=1137
+2026-06-05 10:22:21,946 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\USDCAD.parquet
+2026-06-05 10:22:25,558 | INFO | OK USDCAD rows_in=99991 rows_out=1085
+2026-06-05 10:22:25,558 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\USDCHF.parquet
+2026-06-05 10:22:29,117 | INFO | OK USDCHF rows_in=99997 rows_out=1085
+2026-06-05 10:22:29,117 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\USDJPY.parquet
+2026-06-05 10:22:32,775 | INFO | OK USDJPY rows_in=99997 rows_out=1085
+2026-06-05 10:22:32,775 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\USOIL.cash.parquet
+2026-06-05 10:22:36,495 | INFO | OK USOIL rows_in=99997 rows_out=1134
+2026-06-05 10:22:36,495 | INFO | Processing: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\ohcl\M15\XAUUSD.parquet
+2026-06-05 10:22:40,259 | INFO | OK XAUUSD rows_in=99997 rows_out=1134
+2026-06-05 10:22:40,956 | INFO | DONE rows=14,255 symbols=13
+2026-06-05 10:22:40,956 | INFO | Saved: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\3_Research\Market\daily_regime_features.csv
+2026-06-05 10:22:40,956 | INFO | Saved: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\3_Research\Market\daily_regime_features.parquet

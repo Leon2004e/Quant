@@ -1,0 +1,42 @@
+{
+  "script_id": "research_backtest_lot_scaling_loader",
+  "script_name": "Backtest Lot Scaling Research Loader",
+  "owner": "Leon Everts",
+  "status": "active",
+  "layer": "3_Research",
+  "domain": "Trades/Backtest",
+  "asset_type": "Research_Loader",
+  "purpose": "Load baseline backtest trades, simulate lot scaling per strategy, check risk limits, and save research outputs into Data_Center/Data/3_Research/Trades/Backtest.",
+  "inputs": [
+    "Data_Center/Data/2_Baseline/Trades/Backtest/DEMO_ACCOUNT/**/*.csv",
+    "Data_Center/Data/2_Baseline/Trades/Backtest/LIVE_ACCOUNT/**/*.csv",
+    "Data_Center/Data/2_Baseline/Strategy/**/*.csv"
+  ],
+  "outputs": [
+    "Data_Center/Data/3_Research/Trades/Backtest/Lot_Scaling/Trades/<account>/<strategy_key>/lot_x_xx.csv",
+    "Data_Center/Data/3_Research/Trades/Backtest/Lot_Scaling/Summary/lot_scaling_full_summary.csv",
+    "Data_Center/Data/3_Research/Trades/Backtest/Lot_Scaling/Summary/lot_scaling_dashboard_table.csv",
+    "Data_Center/Data/3_Research/Trades/Backtest/Lot_Scaling/Summary/best_valid_lot_per_strategy.csv",
+    "Data_Center/Data/3_Research/Trades/Backtest/Lot_Scaling/Registry/code_registry.json"
+  ],
+  "dependencies": [
+    "pathlib",
+    "pandas",
+    "numpy",
+    "math",
+    "re",
+    "json"
+  ],
+  "schedule": "manual",
+  "version": "v3.0.0_quant_research_structure",
+  "last_reviewed": "2026-06-04",
+  "business_criticality": "high",
+  "environment": "desktop",
+  "registry_group": "research_backtest",
+  "notes": [
+    "Reads from 2_Baseline and writes only to 3_Research.",
+    "Does not write to feature_engineered or raw.",
+    "Supports DEMO_ACCOUNT and LIVE_ACCOUNT.",
+    "Keeps CODE_REGISTRY metadata inside the code and saves registry JSON copy."
+  ]
+}

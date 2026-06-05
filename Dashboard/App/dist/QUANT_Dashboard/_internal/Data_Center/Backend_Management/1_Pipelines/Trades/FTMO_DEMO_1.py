@@ -183,8 +183,8 @@ FIXED_TERMINAL_EXE = Path(
     )
 )
 
-MT5_LOGIN = int(os.getenv("MT5_LOGIN", "1513283684"))
-MT5_PASSWORD = os.getenv("MT5_PASSWORD", "@ypdL*V!9?1a2*")
+MT5_LOGIN = int(os.getenv("MT5_LOGIN", "1513550384"))
+MT5_PASSWORD = os.getenv("MT5_PASSWORD", "Y8Ck369k@@DNi*")
 MT5_SERVER = os.getenv("MT5_SERVER", "FTMO-Demo")
 
 PORTABLE = os.getenv("MT5_PORTABLE", "1") == "1"

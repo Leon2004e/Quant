@@ -172,8 +172,8 @@ FIXED_TERMINAL_EXE = Path(
     r"C:\Users\Leon\Desktop\Terminals\MetaTrader 5 - Kopie - Kopie - Kopie (17) - Kopie - Kopie - Kopie - Kopie\terminal64.exe"
 )
 
-MT5_LOGIN = int(os.getenv("MT5_LOGIN", "1513283697"))
-MT5_PASSWORD = os.getenv("MT5_PASSWORD", "GQ$?4w4x")
+MT5_LOGIN = int(os.getenv("MT5_LOGIN", "1513550380"))
+MT5_PASSWORD = os.getenv("MT5_PASSWORD", "@8@?N5$q9D5rG$")
 MT5_SERVER = os.getenv("MT5_SERVER", "FTMO-Demo")
 
 PORTABLE = True

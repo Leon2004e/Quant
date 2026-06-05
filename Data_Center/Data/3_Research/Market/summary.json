@@ -1,0 +1,70 @@
+{
+  "script": {
+    "script_id": "market_daily_regime_research",
+    "script_name": "code.py",
+    "owner": "Leon Everts",
+    "status": "active",
+    "layer": "3_Research",
+    "domain": "Market",
+    "asset_type": "Research",
+    "purpose": "Calculates daily market regime research features from M15 OHLC pipeline data.",
+    "inputs": [
+      "Data_Center/Data/1_Pipeline/Market/ohcl/M15/*.parquet"
+    ],
+    "outputs": [
+      "Data_Center/Data/3_Research/Market/daily_regime_features.csv",
+      "Data_Center/Data/3_Research/Market/daily_regime_features.parquet"
+    ],
+    "upstream_data": [
+      "1_Pipeline"
+    ],
+    "downstream_data": [
+      "Analytics"
+    ],
+    "dependencies": [
+      "pandas",
+      "numpy",
+      "pathlib"
+    ],
+    "schedule": "manual",
+    "version": "v1.0.0",
+    "last_reviewed": "2026-06-05",
+    "business_criticality": "high",
+    "environment": "desktop",
+    "registry_group": "research",
+    "author": "Leon Everts",
+    "reviewer": "ChatGPT",
+    "created_date": "2026-06-05",
+    "tags": [
+      "market",
+      "regime",
+      "research",
+      "ohlc",
+      "features"
+    ]
+  },
+  "updated_at_utc": "2026-06-05T08:22:40+00:00",
+  "input_root": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Data\\1_Pipeline\\Market\\ohcl",
+  "output_root": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Data\\3_Research\\Market",
+  "target_timeframe": "M15",
+  "rows": 14255,
+  "symbols": [
+    "AUDJPY",
+    "AUDUSD",
+    "EURGBP",
+    "EURUSD",
+    "GBPJPY",
+    "GBPUSD",
+    "NZDUSD",
+    "US500",
+    "USDCAD",
+    "USDCHF",
+    "USDJPY",
+    "USOIL",
+    "XAUUSD"
+  ],
+  "from_date": "2022-01-06",
+  "to_date": "2026-06-01",
+  "files_processed": 13,
+  "errors": 0
+}
