@@ -1,0 +1,27 @@
+[INFO] terminal64.exe = C:\Users\Leon\Desktop\Terminals\MetaTrader 5 - Kopie - Kopie - Kopie (16) - Kopie - Kopie - Kopie - Kopie\terminal64.exe
+[INFO] SCRIPT_PATH = C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines\Trades\FTMO_DEMO_1.py
+[INFO] QUANT_ROOT = C:\Users\Leon\Desktop\QUANT
+[INFO] DATA_CENTER_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center
+[INFO] DATA_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Data
+[INFO] BACKEND_MANAGEMENT_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management
+[INFO] PIPELINES_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines
+[INFO] PIPELINE_DATA_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline
+[INFO] TRADES_DATA_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades
+[INFO] OUTPUT_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\Live\account_1513283684_DEMO
+[WARN] initialize failed (1/8): (-6, 'Terminal: Authorization failed')
+[WARN] initialize failed (2/8): (-6, 'Terminal: Authorization failed')
+[WARN] initialize failed (3/8): (-6, 'Terminal: Authorization failed')
+[WARN] initialize failed (4/8): (-6, 'Terminal: Authorization failed')
+[WARN] initialize failed (5/8): (-6, 'Terminal: Authorization failed')
+[WARN] initialize failed (6/8): (-6, 'Terminal: Authorization failed')
+[WARN] initialize failed (7/8): (-6, 'Terminal: Authorization failed')
+[WARN] initialize failed (8/8): (-6, 'Terminal: Authorization failed')
+Traceback (most recent call last):
+  File "C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines\Trades\FTMO_DEMO_1.py", line 1555, in <module>
+    main()
+  File "C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines\Trades\FTMO_DEMO_1.py", line 1495, in main
+    acc_info = connect_mt5(exe)
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines\Trades\FTMO_DEMO_1.py", line 383, in connect_mt5
+    raise RuntimeError(f"initialize failed: {last_err}")
+RuntimeError: initialize failed: (-6, 'Terminal: Authorization failed')

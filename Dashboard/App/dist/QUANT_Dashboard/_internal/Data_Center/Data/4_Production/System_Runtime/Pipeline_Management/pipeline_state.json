@@ -1,0 +1,90 @@
+{
+  "market_ohcl_logger": {
+    "pipeline_id": "market_ohcl_logger",
+    "pid": null,
+    "running": false,
+    "started_at_epoch": 1780301578.2155397,
+    "last_exit_code": 0,
+    "auto_restart": false,
+    "log_file": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Data\\4_Production\\System_Runtime\\Pipeline_Management\\logs\\market_ohcl_logger_20260601_101258.log",
+    "script_path": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Backend_Management\\1_Pipelines\\Market\\Ohcl_Logger\\code.py",
+    "last_error": null
+  },
+  "market_spread_logger": {
+    "pipeline_id": "market_spread_logger",
+    "pid": null,
+    "running": false,
+    "started_at_epoch": 1780310209.181589,
+    "last_exit_code": 0,
+    "auto_restart": false,
+    "log_file": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Data\\4_Production\\System_Runtime\\Pipeline_Management\\logs\\market_spread_logger_20260601_123649.log",
+    "script_path": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Backend_Management\\1_Pipelines\\Market\\Spread_Logger\\code.py",
+    "last_error": null
+  },
+  "ftmo_demo_1": {
+    "pipeline_id": "ftmo_demo_1",
+    "pid": null,
+    "running": false,
+    "started_at_epoch": 1780310209.1985898,
+    "last_exit_code": 0,
+    "auto_restart": false,
+    "log_file": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Data\\4_Production\\System_Runtime\\Pipeline_Management\\logs\\ftmo_demo_1_20260601_123649.log",
+    "script_path": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Backend_Management\\1_Pipelines\\Trades\\FTMO_DEMO_1.py",
+    "last_error": null
+  },
+  "ftmo_demo_2": {
+    "pipeline_id": "ftmo_demo_2",
+    "pid": null,
+    "running": false,
+    "started_at_epoch": 1780310209.2146373,
+    "last_exit_code": 0,
+    "auto_restart": false,
+    "log_file": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Data\\4_Production\\System_Runtime\\Pipeline_Management\\logs\\ftmo_demo_2_20260601_123649.log",
+    "script_path": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Backend_Management\\1_Pipelines\\Trades\\FTMO_DEMO_2.py",
+    "last_error": null
+  },
+  "ftmo_live_530164208": {
+    "pipeline_id": "ftmo_live_530164208",
+    "pid": null,
+    "running": false,
+    "started_at_epoch": 1780301578.2782946,
+    "last_exit_code": 0,
+    "auto_restart": false,
+    "log_file": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Data\\4_Production\\System_Runtime\\Pipeline_Management\\logs\\ftmo_live_530164208_20260601_101258.log",
+    "script_path": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Backend_Management\\1_Pipelines\\Trades\\FTMO_LIVE_530164208.py",
+    "last_error": null
+  },
+  "ftmo_live_540130486": {
+    "pipeline_id": "ftmo_live_540130486",
+    "pid": null,
+    "running": false,
+    "started_at_epoch": 1780301578.2993636,
+    "last_exit_code": 0,
+    "auto_restart": false,
+    "log_file": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Data\\4_Production\\System_Runtime\\Pipeline_Management\\logs\\ftmo_live_540130486_20260601_101258.log",
+    "script_path": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Backend_Management\\1_Pipelines\\Trades\\FTMO_LIVE_540130486.py",
+    "last_error": null
+  },
+  "ftmo_live_540136817": {
+    "pipeline_id": "ftmo_live_540136817",
+    "pid": null,
+    "running": false,
+    "started_at_epoch": 1780301578.3177106,
+    "last_exit_code": 0,
+    "auto_restart": false,
+    "log_file": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Data\\4_Production\\System_Runtime\\Pipeline_Management\\logs\\ftmo_live_540136817_20260601_101258.log",
+    "script_path": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Backend_Management\\1_Pipelines\\Trades\\FTMO_LIVE_540136817.py",
+    "last_error": null
+  },
+  "ftmo_live_540136824": {
+    "pipeline_id": "ftmo_live_540136824",
+    "pid": null,
+    "running": false,
+    "started_at_epoch": 1780301578.3379636,
+    "last_exit_code": 0,
+    "auto_restart": false,
+    "log_file": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Data\\4_Production\\System_Runtime\\Pipeline_Management\\logs\\ftmo_live_540136824_20260601_101258.log",
+    "script_path": "C:\\Users\\Leon\\Desktop\\QUANT\\Data_Center\\Backend_Management\\1_Pipelines\\Trades\\FTMO_LIVE_540136824.py",
+    "last_error": null
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "530164208": {
+    "account_id": 530164208,
+    "account_folder": "account_530164208_LIVE",
+    "last_max_close_ticket": 145250074,
+    "last_rows": 231,
+    "last_mapped_rows": 206,
+    "last_exportable_rows": 206,
+    "last_unmapped_rows": 25,
+    "last_not_exportable_rows": 0,
+    "last_exported_buckets": 6,
+    "last_updated_utc": "2026-06-02T08:28:05+00:00"
+  },
+  "540130486": {
+    "account_id": 540130486,
+    "account_folder": "account_540130486_LIVE",
+    "last_max_close_ticket": 127720492,
+    "last_rows": 224,
+    "last_mapped_rows": 200,
+    "last_exportable_rows": 200,
+    "last_unmapped_rows": 24,
+    "last_not_exportable_rows": 0,
+    "last_exported_buckets": 6,
+    "last_updated_utc": "2026-06-02T08:28:06+00:00"
+  },
+  "540136817": {
+    "account_id": 540136817,
+    "account_folder": "account_540136817_LIVE",
+    "last_max_close_ticket": 127720489,
+    "last_rows": 220,
+    "last_mapped_rows": 195,
+    "last_exportable_rows": 195,
+    "last_unmapped_rows": 25,
+    "last_not_exportable_rows": 0,
+    "last_exported_buckets": 6,
+    "last_updated_utc": "2026-06-02T08:28:08+00:00"
+  },
+  "540136824": {
+    "account_id": 540136824,
+    "account_folder": "account_540136824_LIVE",
+    "last_max_close_ticket": 127720491,
+    "last_rows": 225,
+    "last_mapped_rows": 201,
+    "last_exportable_rows": 201,
+    "last_unmapped_rows": 24,
+    "last_not_exportable_rows": 0,
+    "last_exported_buckets": 6,
+    "last_updated_utc": "2026-06-02T08:28:09+00:00"
+  }
+}

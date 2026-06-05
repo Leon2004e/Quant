@@ -1,0 +1,582 @@
+[INFO] terminal64.exe = C:\Users\Leon\Desktop\Terminals\MetaTrader 5 - Kopie - Kopie - Kopie (18) - Kopie - Kopie - Kopie - Kopie\terminal64.exe
+[INFO] SCRIPT_PATH = C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines\Trades\FTMO_LIVE_540130486.py
+[INFO] QUANT_ROOT = C:\Users\Leon\Desktop\QUANT
+[INFO] DATA_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Data
+[INFO] BACKEND_MANAGEMENT_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management
+[INFO] PIPELINES_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines
+[INFO] PIPELINE_DATA_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline
+[INFO] TRADES_DATA_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades
+[INFO] OUTPUT_DIR = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\Live\account_540130486_LIVE
+[OK] Connected: 540130486 | FTMO Challenge EUR | FTMO-Server4 | LIVE
+[DEBUG] history_deals_get dt_from=2025-06-01T08:13:03.912898+00:00 dt_to=2026-06-01T08:13:03.912898+00:00 deals=1393
+[DEBUG] backfill closed_trades_found=695
+[DEBUG]      position_id  symbol  ...       tp close_ticket
+685    135718025  USDJPY  ...  159.813    126668941
+686    136183107  EURUSD  ...  1.16491    126877378
+687    136058908  AUDJPY  ...  114.666    127029263
+688    136100960  USDJPY  ...  160.155    127029244
+689    136032633  EURGBP  ...  0.86298    127029269
+690    136434810  AUDJPY  ...  114.474    127393551
+691    136436852  EURGBP  ...  0.86443    127393550
+692    136841733  EURUSD  ...  1.16563    127496864
+693    136826246  EURGBP  ...  0.86511    127720488
+694    137060497  USDJPY  ...  160.154    127720492
+
+[10 rows x 7 columns]
+[DEBUG] rows_to_upsert=695
+[DEBUG] existing_close_tickets_before=0
+[DB][LIVE][FTMO-Server4] changed=695 -> C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\closed_trades.db
+[OK] Backfill done. Folder: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\Live\account_540130486_LIVE | account_type=LIVE | server=FTMO-Server4
+[OK] DB rows: 695
+[OK] DB max close_time_utc: 2026-05-29T23:45:00+00:00
+[OK] Open positions DB: C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[INFO] Polling every 60s. Account=540130486 | Type=LIVE | Server=FTMO-Server4. Stop with CTRL+C.
+[DEBUG] positions_get open_positions=3
+[DEBUG] open_positions_current active=3 | upsert_changed=3 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:03:03.912898+00:00 dt_to=2026-06-01T08:13:05.014449+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:13:05+00:00 | db_changed=3 | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=3 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:08:05.014449+00:00 dt_to=2026-06-01T08:14:05.042139+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:14:05+00:00 | db_changed=3 | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:09:05.042139+00:00 dt_to=2026-06-01T08:15:05.055244+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:15:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:10:05.055244+00:00 dt_to=2026-06-01T08:16:05.064705+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:16:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:11:05.064705+00:00 dt_to=2026-06-01T08:17:05.126152+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:17:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:12:05.126152+00:00 dt_to=2026-06-01T08:18:05.190817+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:18:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:13:05.190817+00:00 dt_to=2026-06-01T08:19:05.253902+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:19:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:14:05.253902+00:00 dt_to=2026-06-01T08:20:05.317975+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:20:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:15:05.317975+00:00 dt_to=2026-06-01T08:21:05.378692+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:21:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:16:05.378692+00:00 dt_to=2026-06-01T08:22:05.443069+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:22:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:17:05.443069+00:00 dt_to=2026-06-01T08:23:05.455703+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:23:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:18:05.455703+00:00 dt_to=2026-06-01T08:24:05.467306+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:24:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:19:05.467306+00:00 dt_to=2026-06-01T08:25:05.496478+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:25:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:20:05.496478+00:00 dt_to=2026-06-01T08:26:05.513473+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:26:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:21:05.513473+00:00 dt_to=2026-06-01T08:27:05.530231+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:27:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:22:05.530231+00:00 dt_to=2026-06-01T08:28:05.548414+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:28:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:23:05.548414+00:00 dt_to=2026-06-01T08:29:05.563256+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:29:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:24:05.563256+00:00 dt_to=2026-06-01T08:30:05.616759+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:30:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:25:05.616759+00:00 dt_to=2026-06-01T08:31:05.683042+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:31:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:26:05.683042+00:00 dt_to=2026-06-01T08:32:05.697751+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:32:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:27:05.697751+00:00 dt_to=2026-06-01T08:33:05.753000+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:33:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:28:05.753000+00:00 dt_to=2026-06-01T08:34:05.764102+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:34:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:29:05.764102+00:00 dt_to=2026-06-01T08:35:05.777393+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:35:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:30:05.777393+00:00 dt_to=2026-06-01T08:36:05.843084+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:36:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:31:05.843084+00:00 dt_to=2026-06-01T08:37:05.908781+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:37:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:32:05.908781+00:00 dt_to=2026-06-01T08:38:05.968364+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:38:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:33:05.968364+00:00 dt_to=2026-06-01T08:39:06.035110+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:39:05+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:34:06.035110+00:00 dt_to=2026-06-01T08:40:06.048150+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:40:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:35:06.048150+00:00 dt_to=2026-06-01T08:41:06.116857+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:41:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:36:06.116857+00:00 dt_to=2026-06-01T08:42:06.182564+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:42:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:37:06.182564+00:00 dt_to=2026-06-01T08:43:06.200019+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:43:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:38:06.200019+00:00 dt_to=2026-06-01T08:44:06.212177+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:44:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:39:06.212177+00:00 dt_to=2026-06-01T08:45:06.225867+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:45:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:40:06.225867+00:00 dt_to=2026-06-01T08:46:06.292754+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:46:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:41:06.292754+00:00 dt_to=2026-06-01T08:47:06.304426+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:47:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:42:06.304426+00:00 dt_to=2026-06-01T08:48:06.373330+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:48:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:43:06.373330+00:00 dt_to=2026-06-01T08:49:06.387563+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:49:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:44:06.387563+00:00 dt_to=2026-06-01T08:50:06.402738+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:50:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:45:06.402738+00:00 dt_to=2026-06-01T08:51:06.416206+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:51:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:46:06.416206+00:00 dt_to=2026-06-01T08:52:06.427962+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:52:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:47:06.427962+00:00 dt_to=2026-06-01T08:53:06.439499+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:53:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:48:06.439499+00:00 dt_to=2026-06-01T08:54:06.452831+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:54:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:49:06.452831+00:00 dt_to=2026-06-01T08:55:06.517794+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:55:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:50:06.517794+00:00 dt_to=2026-06-01T08:56:06.548610+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:56:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:51:06.548610+00:00 dt_to=2026-06-01T08:57:06.612415+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:57:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:52:06.612415+00:00 dt_to=2026-06-01T08:58:06.682067+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:58:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:53:06.682067+00:00 dt_to=2026-06-01T08:59:06.696807+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T08:59:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:54:06.696807+00:00 dt_to=2026-06-01T09:00:06.711871+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T09:00:06+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T08:55:06.711871+00:00 dt_to=2026-06-01T10:33:38.193288+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:33:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:28:38.193288+00:00 dt_to=2026-06-01T10:34:38.204223+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:34:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:29:38.204223+00:00 dt_to=2026-06-01T10:35:38.271261+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:35:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:30:38.271261+00:00 dt_to=2026-06-01T10:36:38.337589+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:36:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:31:38.337589+00:00 dt_to=2026-06-01T10:37:38.349435+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:37:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:32:38.349435+00:00 dt_to=2026-06-01T10:38:38.365196+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:38:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:33:38.365196+00:00 dt_to=2026-06-01T10:39:38.432391+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:39:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:34:38.432391+00:00 dt_to=2026-06-01T10:40:38.469517+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:40:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:35:38.469517+00:00 dt_to=2026-06-01T10:41:38.536414+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:41:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:36:38.536414+00:00 dt_to=2026-06-01T10:42:38.600381+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:42:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:37:38.600381+00:00 dt_to=2026-06-01T10:43:38.666377+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:43:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:38:38.666377+00:00 dt_to=2026-06-01T10:44:38.680074+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:44:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:39:38.680074+00:00 dt_to=2026-06-01T10:45:38.695544+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:45:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:40:38.695544+00:00 dt_to=2026-06-01T10:46:38.705784+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:46:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:41:38.705784+00:00 dt_to=2026-06-01T10:47:38.716160+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:47:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:42:38.716160+00:00 dt_to=2026-06-01T10:48:38.780815+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:48:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:43:38.780815+00:00 dt_to=2026-06-01T10:49:38.844825+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:49:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:44:38.844825+00:00 dt_to=2026-06-01T10:50:38.908524+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:50:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:45:38.908524+00:00 dt_to=2026-06-01T10:51:38.980338+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:51:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:46:38.980338+00:00 dt_to=2026-06-01T10:52:38.990389+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:52:38+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:47:38.990389+00:00 dt_to=2026-06-01T10:53:39.060740+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:53:39+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:48:39.060740+00:00 dt_to=2026-06-01T10:54:39.125648+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:54:39+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:49:39.125648+00:00 dt_to=2026-06-01T10:55:39.136943+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:55:39+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:50:39.136943+00:00 dt_to=2026-06-01T10:56:39.199500+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:56:39+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:51:39.199500+00:00 dt_to=2026-06-01T10:57:39.212409+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:57:39+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:52:39.212409+00:00 dt_to=2026-06-01T10:58:39.225952+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:58:39+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:53:39.225952+00:00 dt_to=2026-06-01T10:59:39.288082+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T10:59:39+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:54:39.288082+00:00 dt_to=2026-06-01T11:00:39.350993+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T11:00:39+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:55:39.350993+00:00 dt_to=2026-06-01T11:01:39.365699+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T11:01:39+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:56:39.365699+00:00 dt_to=2026-06-01T11:02:39.431758+00:00 deals=0
+[DEBUG] recent_exit_position_ids=0
+[DEBUG] rebuilt_closed_trades=0
+[DEBUG] rows_to_upsert=0
+[LOOP] 2026-06-01T11:02:39+00:00 | no db changes | account_type=LIVE | server=FTMO-Server4 | max_close_time_utc=2026-05-29T23:45:00+00:00
+[DEBUG] positions_get open_positions=0
+[DEBUG] open_positions_current active=0 | upsert_changed=0 | deleted_closed=0 | db=C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Trades\live\account_540130486_LIVE\open_positions_current.db
+[DEBUG] history_deals_get dt_from=2026-06-01T10:57:39.431758+00:00 dt_to=2026-06-01T11:03:39.498315+00:00 deals=0

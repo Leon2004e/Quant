@@ -1,0 +1,30 @@
+{
+  "530164208": {
+    "account_id": 530164208,
+    "account_folder": "account_530164208_LIVE",
+    "last_max_close_ticket": 145250074,
+    "last_rows": 683,
+    "last_updated_utc": "2026-06-02T06:51:39+00:00"
+  },
+  "540130486": {
+    "account_id": 540130486,
+    "account_folder": "account_540130486_LIVE",
+    "last_max_close_ticket": 127720492,
+    "last_rows": 695,
+    "last_updated_utc": "2026-06-02T06:51:41+00:00"
+  },
+  "540136817": {
+    "account_id": 540136817,
+    "account_folder": "account_540136817_LIVE",
+    "last_max_close_ticket": 127720489,
+    "last_rows": 869,
+    "last_updated_utc": "2026-06-02T06:51:43+00:00"
+  },
+  "540136824": {
+    "account_id": 540136824,
+    "account_folder": "account_540136824_LIVE",
+    "last_max_close_ticket": 127720491,
+    "last_rows": 709,
+    "last_updated_utc": "2026-06-02T06:51:45+00:00"
+  }
+}

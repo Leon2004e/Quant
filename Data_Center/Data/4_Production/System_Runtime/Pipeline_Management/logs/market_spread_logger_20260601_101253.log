@@ -1,0 +1,21 @@
+[INFO] SCRIPT_PATH              = C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines\Market\Spread_Logger\code.py
+[INFO] QUANT_ROOT               = C:\Users\Leon\Desktop\QUANT
+[INFO] DATA_CENTER_DIR          = C:\Users\Leon\Desktop\QUANT\Data_Center
+[INFO] DATA_DIR                 = C:\Users\Leon\Desktop\QUANT\Data_Center\Data
+[INFO] BACKEND_MANAGEMENT_DIR   = C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management
+[INFO] PIPELINES_DIR            = C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines
+[INFO] PIPELINE_DATA_DIR        = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline
+[INFO] MARKET_DATA_DIR          = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market
+[INFO] OUT_DIR                  = C:\Users\Leon\Desktop\QUANT\Data_Center\Data\1_Pipeline\Market\spreads
+[INFO] TERMINAL_EXE             = C:\Users\Leon\Desktop\Terminals\FTMO\MetaTrader 5 - Kopie - Kopie - Kopie (10) - Kopie - Kopie - Kopie - Kopie\terminal64.exe
+[INFO] POLL_SECONDS             = 1.0
+[INFO] SYMBOLS                  = 13
+Traceback (most recent call last):
+  File "C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines\Market\Spread_Logger\code.py", line 606, in <module>
+    main()
+  File "C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines\Market\Spread_Logger\code.py", line 551, in main
+    account_id = connect_mt5(TERMINAL_EXE_PATH)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Leon\Desktop\QUANT\Data_Center\Backend_Management\1_Pipelines\Market\Spread_Logger\code.py", line 265, in connect_mt5
+    raise RuntimeError("MT5_LOGIN fehlt. Bitte ENV Variable setzen.")
+RuntimeError: MT5_LOGIN fehlt. Bitte ENV Variable setzen.
