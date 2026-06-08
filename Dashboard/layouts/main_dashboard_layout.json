@@ -1,0 +1,20 @@
+{
+  "version": "v2.0.0",
+  "mode": "freeform",
+  "panels": [
+    {
+      "block_name": "Code_Registry",
+      "x": 14,
+      "y": 14,
+      "width": 687,
+      "height": 918
+    },
+    {
+      "block_name": "Data_Catalog",
+      "x": 713,
+      "y": 14,
+      "width": 687,
+      "height": 918
+    }
+  ]
+}

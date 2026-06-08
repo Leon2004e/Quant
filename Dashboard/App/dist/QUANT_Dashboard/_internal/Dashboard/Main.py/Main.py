@@ -20,7 +20,7 @@
 #   - importlib
 #   - json
 # schedule: manual
-# version: v2.1.1_dynamic_import_fix
+# version: v2.3.0_recursive_building_blocks_full_reload
 # last_reviewed: 2026-06-01
 # ============================================================
 
@@ -30,6 +30,7 @@ import json
 import sys
 import traceback
 import importlib.util
+import hashlib
 import tkinter as tk
 from tkinter import ttk, messagebox
 from pathlib import Path
@@ -121,7 +122,30 @@ def find_quant_root(start: Path) -> Path:
 
 
 def display_name(folder_name: str) -> str:
-    return folder_name.replace("_", " ")
+    # Supports both top-level blocks like "Data_Catalog" and nested blocks
+    # like "Market/Monitoring" or "Trades/Live".
+    return " / ".join(part.replace("_", " ") for part in folder_name.replace("\\", "/").split("/"))
+
+
+def module_name_from_block(block_name: str, code_file: Path | None = None) -> str:
+    """Return a safe and unique dynamic module name for a Building Block.
+
+    The previous Main.py reused the same module name per block. That can keep
+    stale imports alive after code.py changes. This version adds a stable path
+    hash plus the file mtime so refreshed/new blocks are imported cleanly.
+    """
+    safe = block_name.replace("\\", "/").replace("/", "__").replace(" ", "_").replace("-", "_")
+    if code_file is None:
+        return f"quant_building_block_{safe}"
+
+    try:
+        resolved = str(Path(code_file).resolve()).lower()
+        mtime = str(int(Path(code_file).stat().st_mtime))
+        digest = hashlib.md5((resolved + mtime).encode("utf-8", errors="ignore")).hexdigest()[:10]
+    except Exception:
+        digest = hashlib.md5(str(block_name).encode("utf-8", errors="ignore")).hexdigest()[:10]
+
+    return f"quant_building_block_{safe}_{digest}"
 
 
 class BuildingBlockRegistry:
@@ -130,27 +154,60 @@ class BuildingBlockRegistry:
         self.blocks: dict[str, dict] = {}
 
     def scan(self) -> dict[str, dict]:
+        """Recursively scan Dashboard/Building_Blocks for every Building Block code.py.
+
+        Supported examples:
+        - Dashboard/Building_Blocks/Code_Registry/code.py
+        - Dashboard/Building_Blocks/Data_Catalog/code.py
+        - Dashboard/Building_Blocks/Market/code.py
+        - Dashboard/Building_Blocks/Market/Correlation_Matrix/code.py
+        - Dashboard/Building_Blocks/Market/Seasonality/code.py
+        - Dashboard/Building_Blocks/Market/Session/code.py
+        - Dashboard/Building_Blocks/Trades/Live/code.py
+
+        Rules:
+        - scans recursively with rglob("*.py")
+        - accepts only files named code.py, case-insensitive
+        - ignores __pycache__, .venv, venv, env, archive folders
+        - block key is the relative folder path, e.g. Market/Session
+        """
         self.blocks = {}
 
         if not self.building_blocks_dir.exists():
             return self.blocks
 
-        for folder in self.building_blocks_dir.iterdir():
-            if not folder.is_dir():
-                continue
-            if folder.name == "__pycache__":
-                continue
+        ignored_parts = {"__pycache__", ".venv", "venv", "env", ".git", "archive", "backup", "backups"}
 
-            code_file = folder / "code.py"
-            if code_file.exists():
-                self.blocks[folder.name] = {
-                    "name": folder.name,
-                    "display": display_name(folder.name),
+        for code_file in self.building_blocks_dir.rglob("*.py"):
+            try:
+                if code_file.name.lower() != "code.py":
+                    continue
+                if any(part.lower() in ignored_parts for part in code_file.parts):
+                    continue
+                if not code_file.is_file():
+                    continue
+
+                folder = code_file.parent
+                rel_folder = folder.relative_to(self.building_blocks_dir)
+                if not rel_folder.parts:
+                    continue
+
+                block_name = rel_folder.as_posix()
+                depth = len(rel_folder.parts)
+
+                self.blocks[block_name] = {
+                    "name": block_name,
+                    "display": display_name(block_name),
                     "folder": folder,
                     "code_file": code_file,
+                    "depth": depth,
+                    "mtime": code_file.stat().st_mtime,
+                    "size": code_file.stat().st_size,
                 }
+            except Exception:
+                continue
 
-        self.blocks = dict(sorted(self.blocks.items(), key=lambda x: x[0].lower()))
+        self.blocks = dict(sorted(self.blocks.items(), key=lambda x: (x[1].get("depth", 0), x[0].lower())))
         return self.blocks
 
     def load_module(self, block_name: str):
@@ -158,7 +215,13 @@ class BuildingBlockRegistry:
             raise ValueError(f"Unknown Building Block: {block_name}")
 
         code_file = self.blocks[block_name]["code_file"]
-        module_name = f"quant_building_block_{block_name}"
+        module_name = module_name_from_block(block_name, code_file)
+
+        # Remove older dynamic versions of this block before loading the current file.
+        prefix = module_name_from_block(block_name)
+        for loaded_name in list(sys.modules.keys()):
+            if loaded_name == prefix or loaded_name.startswith(prefix + "_"):
+                sys.modules.pop(loaded_name, None)
 
         spec = importlib.util.spec_from_file_location(module_name, code_file)
         if spec is None or spec.loader is None:
@@ -181,7 +244,6 @@ class BuildingBlockRegistry:
             raise
 
         return module
-
 
 class DashboardPanel(tk.Frame):
     def __init__(
@@ -827,6 +889,10 @@ class MainDashboard(tk.Tk):
             return COLORS["success"], COLORS["success_soft"]
         if "pipeline" in lower:
             return COLORS["warning"], COLORS["warning_soft"]
+        if "market" in lower:
+            return COLORS["info"], COLORS["info_soft"]
+        if "trade" in lower:
+            return COLORS["success"], COLORS["success_soft"]
         return COLORS["accent"], COLORS["accent_soft"]
 
     def _filtered_blocks(self) -> dict[str, dict]:
@@ -1070,7 +1136,7 @@ class MainDashboard(tk.Tk):
         if current in self.registry.blocks:
             self.selected_block_name.set(current)
 
-        self.update_status(f"Blocks refreshed: {len(self.registry.blocks)}")
+        self.update_status(f"Blocks refreshed: {len(self.registry.blocks)} | Source: {self.building_blocks_dir}")
 
     def save_layout(self):
         self.layouts_dir.mkdir(parents=True, exist_ok=True)

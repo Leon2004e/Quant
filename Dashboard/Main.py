@@ -20,7 +20,7 @@
 #   - importlib
 #   - json
 # schedule: manual
-# version: v2.1.1_dynamic_import_fix
+# version: v2.6.3_final_clean_bloomberg_nav
 # last_reviewed: 2026-06-01
 # ============================================================
 
@@ -38,8 +38,8 @@ from pathlib import Path
 APP_TITLE = "QUANT TERMINAL"
 LAYOUT_FILE_NAME = "main_dashboard_layout.json"
 
-SIDEBAR_WIDTH = 360
-SIDEBAR_MIN_WIDTH = 260
+SIDEBAR_WIDTH = 380
+SIDEBAR_MIN_WIDTH = 320
 
 DEFAULT_PANEL_W = 760
 DEFAULT_PANEL_H = 520
@@ -52,25 +52,25 @@ WORKSPACE_H = 2200
 
 COLORS = {
     # Bloomberg-terminal-inspired theme. No logos/trademarks, only terminal-style UI.
-    "bg": "#000000",
-    "workspace": "#050505",
-    "workspace_grid": "#161616",
+    "bg": "#050607",
+    "workspace": "#07090B",
+    "workspace_grid": "#151A1F",
 
-    "panel": "#0A0A0A",
-    "panel_2": "#111111",
-    "panel_3": "#151515",
+    "panel": "#0B0D10",
+    "panel_2": "#101318",
+    "panel_3": "#151A20",
 
     "slot": "#0A0A0A",
-    "slot_border": "#2A2A2A",
+    "slot_border": "#252B33",
     "slot_empty": "#050505",
 
-    "text": "#FFFFFF",
-    "muted": "#B7B7B7",
-    "faint": "#6F6F6F",
+    "text": "#F4F7FA",
+    "muted": "#9AA4AF",
+    "faint": "#687381",
 
-    "accent": "#FF9900",
-    "accent_2": "#FFD400",
-    "accent_soft": "#332000",
+    "accent": "#F5B041",
+    "accent_2": "#FFD166",
+    "accent_soft": "#211806",
 
     "success": "#00FF66",
     "success_soft": "#062D16",
@@ -84,20 +84,20 @@ COLORS = {
     "info": "#00AEEF",
     "info_soft": "#061B28",
 
-    "button": "#111111",
-    "button_hover": "#332000",
-    "button_border": "#2A2A2A",
+    "button": "#0F1217",
+    "button_hover": "#1C2530",
+    "button_border": "#29313A",
 
     "shadow": "#000000",
 }
 
 
-FONT_TITLE = ("Consolas", 13, "bold")
-FONT_HEAD = ("Consolas", 10, "bold")
-FONT_MAIN = ("Consolas", 9)
-FONT_SMALL = ("Consolas", 8)
-FONT_TINY = ("Consolas", 7)
-FONT_MONO = ("Consolas", 9)
+FONT_TITLE = ("Segoe UI", 13, "bold")
+FONT_HEAD = ("Segoe UI", 10, "bold")
+FONT_MAIN = ("Segoe UI", 9)
+FONT_SMALL = ("Segoe UI", 8)
+FONT_TINY = ("Segoe UI", 7)
+FONT_MONO = ("Cascadia Mono", 9)
 
 TERMINAL_NAV_ITEMS = [
     ("OVRV", "Overview"),
@@ -121,7 +121,15 @@ def find_quant_root(start: Path) -> Path:
 
 
 def display_name(folder_name: str) -> str:
-    return folder_name.replace("_", " ")
+    # Supports both top-level blocks like "Data_Catalog" and nested blocks
+    # like "Market/Monitoring" or "Trades/Live".
+    return " / ".join(part.replace("_", " ") for part in folder_name.replace("\\", "/").split("/"))
+
+
+def module_name_from_block(block_name: str) -> str:
+    # Dynamic import module names must not contain slashes or spaces.
+    safe = block_name.replace("\\", "/").replace("/", "__").replace(" ", "_").replace("-", "_")
+    return f"quant_building_block_{safe}"
 
 
 class BuildingBlockRegistry:
@@ -130,25 +138,47 @@ class BuildingBlockRegistry:
         self.blocks: dict[str, dict] = {}
 
     def scan(self) -> dict[str, dict]:
+        """Recursively scans Dashboard/Building_Blocks for every code.py.
+
+        Supports:
+        - Dashboard/Building_Blocks/Code_Registry/code.py
+        - Dashboard/Building_Blocks/Data_Catalog/code.py
+        - Dashboard/Building_Blocks/Market/code.py
+        - Dashboard/Building_Blocks/Market/Monitoring/code.py
+        - Dashboard/Building_Blocks/Pipeline_Management/code.py
+        - Dashboard/Building_Blocks/Trades/Live/code.py
+
+        The block key is the relative folder path, e.g.:
+        - "Market"
+        - "Market/Monitoring"
+        - "Trades/Live"
+        """
         self.blocks = {}
 
         if not self.building_blocks_dir.exists():
             return self.blocks
 
-        for folder in self.building_blocks_dir.iterdir():
-            if not folder.is_dir():
-                continue
-            if folder.name == "__pycache__":
+        for code_file in self.building_blocks_dir.rglob("code.py"):
+            if "__pycache__" in code_file.parts:
                 continue
 
-            code_file = folder / "code.py"
-            if code_file.exists():
-                self.blocks[folder.name] = {
-                    "name": folder.name,
-                    "display": display_name(folder.name),
-                    "folder": folder,
-                    "code_file": code_file,
-                }
+            folder = code_file.parent
+            try:
+                rel_folder = folder.relative_to(self.building_blocks_dir)
+            except ValueError:
+                continue
+
+            if not rel_folder.parts:
+                continue
+
+            block_name = rel_folder.as_posix()
+            self.blocks[block_name] = {
+                "name": block_name,
+                "display": display_name(block_name),
+                "folder": folder,
+                "code_file": code_file,
+                "depth": len(rel_folder.parts),
+            }
 
         self.blocks = dict(sorted(self.blocks.items(), key=lambda x: x[0].lower()))
         return self.blocks
@@ -158,7 +188,7 @@ class BuildingBlockRegistry:
             raise ValueError(f"Unknown Building Block: {block_name}")
 
         code_file = self.blocks[block_name]["code_file"]
-        module_name = f"quant_building_block_{block_name}"
+        module_name = module_name_from_block(block_name)
 
         spec = importlib.util.spec_from_file_location(module_name, code_file)
         if spec is None or spec.loader is None:
@@ -181,7 +211,6 @@ class BuildingBlockRegistry:
             raise
 
         return module
-
 
 class DashboardPanel(tk.Frame):
     def __init__(
@@ -471,6 +500,10 @@ class MainDashboard(tk.Tk):
         self.selected_block_name = tk.StringVar(value="")
         self.block_search_var = tk.StringVar(value="")
         self.status_var = tk.StringVar(value="Ready.")
+        self.display_mode_var = tk.StringVar(value="FREE")
+        self.fixed_panel: DashboardPanel | None = None
+        self.fixed_2_panels: list[DashboardPanel] = []
+        self.fixed_2_next_slot = 0
 
         self.panels: list[DashboardPanel] = []
         self.dragging_block_name: str | None = None
@@ -564,7 +597,7 @@ class MainDashboard(tk.Tk):
         self.topbar = tk.Frame(
             self,
             bg=COLORS["panel"],
-            height=42,
+            height=64,
             highlightbackground=COLORS["slot_border"],
             highlightthickness=1,
         )
@@ -572,46 +605,48 @@ class MainDashboard(tk.Tk):
         self.topbar.grid_columnconfigure(1, weight=1)
 
         brand = tk.Frame(self.topbar, bg=COLORS["panel"])
-        brand.grid(row=0, column=0, sticky="w", padx=10, pady=6)
+        brand.grid(row=0, column=0, sticky="w", padx=18, pady=8)
+
+        logo = tk.Label(
+            brand,
+            text="B",
+            bg="#F4F7FA",
+            fg="#000000",
+            font=("Segoe UI", 15, "bold"),
+            width=2,
+            height=1,
+        )
+        logo.pack(side="left", padx=(0, 8))
 
         tk.Label(
             brand,
-            text="QUANT TERMINAL",
+            text="Bloomberg",
             bg=COLORS["panel"],
-            fg=COLORS["accent"],
-            font=FONT_TITLE,
+            fg="#F4F7FA",
+            font=("Segoe UI Semibold", 15),
         ).pack(side="left")
 
-        tk.Label(
-            brand,
-            text="WORKSPACE",
-            bg=COLORS["panel"],
-            fg=COLORS["text"],
-            font=FONT_HEAD,
-        ).pack(side="left", padx=(8, 0))
+        mode_wrap = tk.Frame(self.topbar, bg=COLORS["panel"])
+        mode_wrap.grid(row=0, column=1, sticky="w", padx=(36, 8), pady=8)
 
-        tk.Label(
-            self.topbar,
-            text="BUILDING BLOCK WORKSPACE | DRAG PANELS | SAVE/LOAD LAYOUT | TERMINAL STYLE",
-            bg=COLORS["panel"],
-            fg=COLORS["muted"],
-            font=FONT_MAIN,
-            anchor="w",
-        ).grid(row=0, column=1, sticky="ew", padx=8)
+        self.mode_buttons = {}
+        self._mode_button(mode_wrap, "0", "FREE", self.set_free_dashboard_mode, "FREE").pack(side="left", padx=3)
+        self._mode_button(mode_wrap, "1", "FIXED DISPLAY", self.set_fixed_display_mode, "FIXED").pack(side="left", padx=3)
+        self._mode_button(mode_wrap, "2", "FIXED 2 DISPLAY", self.set_fixed_2_display_mode, "FIXED_2").pack(side="left", padx=3)
 
         actions = tk.Frame(self.topbar, bg=COLORS["panel"])
-        actions.grid(row=0, column=2, sticky="e", padx=8, pady=6)
+        actions.grid(row=0, column=2, sticky="e", padx=16, pady=8)
 
-        self._button(actions, "Refresh Blocks", self.refresh_blocks, fg=COLORS["accent"]).pack(side="left", padx=4)
-        self._button(actions, "Clear Workspace", self.clear_workspace, fg=COLORS["danger"]).pack(side="left", padx=4)
-        self._button(actions, "Load Layout", self.load_layout).pack(side="left", padx=4)
-        self._button(actions, "Save Layout", self.save_layout, fg=COLORS["success"]).pack(side="left", padx=4)
+        self._top_action(actions, "⟳", "REFRESH", self.refresh_blocks).pack(side="left", padx=5)
+        self._top_action(actions, "×", "CLEAR", self.clear_workspace).pack(side="left", padx=5)
+        self._top_action(actions, "⇧", "LOAD", self.load_layout).pack(side="left", padx=5)
+        self._top_action(actions, "▣", "SAVE", self.save_layout).pack(side="left", padx=5)
 
         self.main_pane = tk.PanedWindow(
             self,
             orient="horizontal",
             bg=COLORS["bg"],
-            sashwidth=8,
+            sashwidth=4,
             bd=0,
             showhandle=False,
         )
@@ -639,12 +674,13 @@ class MainDashboard(tk.Tk):
         self.statusbar = tk.Frame(
             self,
             bg=COLORS["panel"],
-            height=28,
+            height=26,
             highlightbackground=COLORS["slot_border"],
             highlightthickness=1,
         )
         self.statusbar.grid(row=2, column=0, sticky="ew")
         self.statusbar.grid_columnconfigure(0, weight=1)
+        self.statusbar.grid_columnconfigure(1, weight=0)
 
         tk.Label(
             self.statusbar,
@@ -656,29 +692,169 @@ class MainDashboard(tk.Tk):
             padx=12,
         ).grid(row=0, column=0, sticky="ew")
 
+        tk.Label(
+            self.statusbar,
+            textvariable=self.display_mode_var,
+            bg=COLORS["panel"],
+            fg=COLORS["accent"],
+            font=FONT_SMALL,
+            anchor="e",
+            padx=12,
+        ).grid(row=0, column=1, sticky="e")
+
+        self._update_mode_buttons()
+
+    def _mode_button(self, parent, number: str, label: str, command, mode_value: str):
+        outer = tk.Frame(parent, bg=COLORS["slot_border"], width=132, height=48)
+        outer.pack_propagate(False)
+
+        btn = tk.Button(
+            outer,
+            text=f"{number}\n{label}",
+            bg=COLORS["button"],
+            fg=COLORS["text"],
+            activebackground=COLORS["button_hover"],
+            activeforeground=COLORS["text"],
+            relief="flat",
+            bd=0,
+            command=command,
+            cursor="hand2",
+            font=("Segoe UI", 8),
+            justify="center",
+        )
+        btn.pack(fill="both", expand=True, padx=1, pady=1)
+        self.mode_buttons[mode_value] = (outer, btn)
+        return outer
+
+    def _top_action(self, parent, icon: str, label: str, command):
+        outer = tk.Frame(parent, bg=COLORS["slot_border"], width=120, height=48)
+        outer.pack_propagate(False)
+
+        btn = tk.Button(
+            outer,
+            text=f"{icon}  {label}",
+            bg=COLORS["button"],
+            fg=COLORS["text"],
+            activebackground=COLORS["button_hover"],
+            activeforeground=COLORS["text"],
+            relief="flat",
+            bd=0,
+            padx=12,
+            pady=8,
+            command=command,
+            cursor="hand2",
+            font=("Segoe UI", 8),
+        )
+        btn.pack(fill="both", expand=True, padx=1, pady=1)
+        return outer
+
+    def _update_mode_buttons(self):
+        if not hasattr(self, "mode_buttons"):
+            return
+        active_mode = self.display_mode_var.get()
+        for mode, (_outer, btn) in self.mode_buttons.items():
+            if mode == active_mode:
+                btn.configure(bg="#151A20", fg=COLORS["accent_2"])
+            else:
+                btn.configure(bg=COLORS["button"], fg=COLORS["text"])
+
+
+    def set_fixed_display_mode(self):
+        """
+        Fixed Display Mode:
+        - One selected Building Block fills the complete workspace area.
+        - No dragging.
+        - No resizing.
+        - Clicking another module replaces the current full-screen module.
+        """
+        self.display_mode_var.set("FIXED")
+        self.fixed_2_panels = []
+        self.fixed_2_next_slot = 0
+        self.clear_workspace(force=True, ask=False)
+        self.workspace_canvas.delete("all")
+        self.workspace_canvas.configure(scrollregion=(0, 0, WORKSPACE_W, WORKSPACE_H))
+        self._draw_fixed_hint()
+        self._update_mode_buttons()
+        self.update_status("Mode: FIXED DISPLAY. Click a module to open it full workspace.")
+
+    def set_fixed_2_display_mode(self):
+        """
+        Fixed 2 Display Mode:
+        - Two modules side-by-side.
+        - Each module gets half of the workspace.
+        - Clicking modules fills left then right, then replaces left/right alternately.
+        - No dragging and no resizing.
+        """
+        self.display_mode_var.set("FIXED_2")
+        self.clear_workspace(force=True, ask=False)
+        self.fixed_panel = None
+        self.fixed_2_panels = []
+        self.fixed_2_next_slot = 0
+        self.workspace_canvas.delete("all")
+        self.workspace_canvas.configure(scrollregion=(0, 0, WORKSPACE_W, WORKSPACE_H))
+        self._draw_fixed_2_hint()
+        self._update_mode_buttons()
+        self.update_status("Mode: FIXED 2 DISPLAY. Click two modules to open left/right.")
+
+    def set_free_dashboard_mode(self):
+        """
+        Free Dashboard Mode:
+        - Original draggable/resizable panel workspace.
+        - Multiple panels possible.
+        - Save/load layout supported.
+        """
+        self.display_mode_var.set("FREE")
+        self.fixed_panel = None
+        self.fixed_2_panels = []
+        self.fixed_2_next_slot = 0
+        self.fixed_2_panels = []
+        self.fixed_2_next_slot = 0
+        self.clear_workspace(force=True, ask=False)
+        self.workspace_canvas.delete("all")
+        self._draw_workspace_hint()
+        self._update_mode_buttons()
+        self.update_status("Mode: FREE DASHBOARD. Click modules as panels. Right-click drag optional.")
+
+    def _draw_fixed_hint(self):
+        self.workspace_canvas.delete("workspace_hint")
+        self._draw_workspace_grid()
+        if self.panels:
+            return
+
+        w = max(1000, self.workspace_canvas.winfo_width())
+        h = max(700, self.workspace_canvas.winfo_height())
+        cx = w // 2
+        cy = h // 2
+
+        self.workspace_canvas.create_text(cx, cy - 60, text="▦", anchor="center", fill=COLORS["muted"], font=("Segoe UI", 34, "bold"), tags=("workspace_hint",))
+        self.workspace_canvas.create_text(cx, cy - 8, text="WORKSPACE", anchor="center", fill="#E9EEF5", font=("Segoe UI", 22, "bold"), tags=("workspace_hint",))
+        self.workspace_canvas.create_text(cx, cy + 34, text="Select a module from the left to open it here.", anchor="center", fill="#A7B0BA", font=("Segoe UI", 11), tags=("workspace_hint",))
+        self.workspace_canvas.create_text(cx, cy + 62, text="Mode 1: one module uses the full display.", anchor="center", fill=COLORS["muted"], font=("Segoe UI", 10), tags=("workspace_hint",))
+
+
+    def _draw_fixed_2_hint(self):
+        self.workspace_canvas.delete("workspace_hint")
+        self._draw_workspace_grid()
+        if self.panels:
+            return
+
+        w = max(1000, self.workspace_canvas.winfo_width())
+        h = max(700, self.workspace_canvas.winfo_height())
+        cx = w // 2
+        cy = h // 2
+
+        self.workspace_canvas.create_text(cx, cy - 60, text="▦", anchor="center", fill=COLORS["muted"], font=("Segoe UI", 34, "bold"), tags=("workspace_hint",))
+        self.workspace_canvas.create_text(cx, cy - 8, text="WORKSPACE", anchor="center", fill="#E9EEF5", font=("Segoe UI", 22, "bold"), tags=("workspace_hint",))
+        self.workspace_canvas.create_text(cx, cy + 34, text="Select two modules from the left.", anchor="center", fill="#A7B0BA", font=("Segoe UI", 11), tags=("workspace_hint",))
+        self.workspace_canvas.create_text(cx, cy + 62, text="Mode 2: each module receives half of the display.", anchor="center", fill=COLORS["muted"], font=("Segoe UI", 10), tags=("workspace_hint",))
+
+
     def _build_sidebar(self):
         head = tk.Frame(self.sidebar, bg=COLORS["panel"])
-        head.pack(fill="x", padx=12, pady=(14, 8))
+        head.pack(fill="x", padx=18, pady=(16, 10))
 
-        tk.Label(
-            head,
-            text="BUILDING BLOCKS",
-            bg=COLORS["panel"],
-            fg=COLORS["text"],
-            font=FONT_HEAD,
-        ).pack(anchor="w")
-
-        self.block_count_label = tk.Label(
-            head,
-            text="0 blocks",
-            bg=COLORS["panel"],
-            fg=COLORS["muted"],
-            font=FONT_SMALL,
-        )
-        self.block_count_label.pack(anchor="w", pady=(2, 0))
-
-        search_wrap = tk.Frame(self.sidebar, bg=COLORS["button_border"])
-        search_wrap.pack(fill="x", padx=12, pady=(0, 10))
+        search_wrap = tk.Frame(head, bg=COLORS["button_border"])
+        search_wrap.pack(fill="x", pady=(0, 12))
 
         search_entry = tk.Entry(
             search_wrap,
@@ -688,10 +864,29 @@ class MainDashboard(tk.Tk):
             insertbackground=COLORS["text"],
             relief="solid",
             bd=1,
-            font=FONT_MAIN,
+            font=("Segoe UI", 10),
         )
-        search_entry.pack(fill="x", padx=1, pady=1, ipady=7)
+        search_entry.pack(side="left", fill="x", expand=True, padx=1, pady=1, ipady=8)
         search_entry.bind("<KeyRelease>", lambda _e: self._refresh_sidebar())
+
+        search_icon = tk.Label(
+            search_wrap,
+            text="⌕",
+            bg=COLORS["button"],
+            fg=COLORS["muted"],
+            font=("Segoe UI", 15),
+            width=3,
+        )
+        search_icon.pack(side="right", padx=1, pady=1, ipady=4)
+
+        self.block_count_label = tk.Label(
+            head,
+            text="0 modules",
+            bg=COLORS["panel"],
+            fg=COLORS["muted"],
+            font=FONT_SMALL,
+        )
+        self.block_count_label.pack(anchor="w")
 
         self.block_canvas = tk.Canvas(self.sidebar, bg=COLORS["panel"], highlightthickness=0, bd=0)
         self.block_scroll = tk.Scrollbar(self.sidebar, orient="vertical", command=self.block_canvas.yview)
@@ -705,11 +900,12 @@ class MainDashboard(tk.Tk):
         self.block_canvas_window = self.block_canvas.create_window((0, 0), window=self.block_list_frame, anchor="nw")
         self.block_canvas.configure(yscrollcommand=self.block_scroll.set)
 
-        self.block_canvas.pack(side="left", fill="both", expand=True, padx=(8, 0), pady=(0, 10))
+        self.block_canvas.pack(side="left", fill="both", expand=True, padx=(12, 0), pady=(0, 10))
         self.block_scroll.pack(side="right", fill="y", padx=(0, 6), pady=(0, 10))
 
         self.block_canvas.bind("<Configure>", self._resize_block_canvas)
         self.block_canvas.bind("<MouseWheel>", self._sidebar_mousewheel)
+
 
     def _build_workspace(self):
         self.workspace_canvas = tk.Canvas(
@@ -734,8 +930,67 @@ class MainDashboard(tk.Tk):
         self.workspace_canvas.bind("<ButtonRelease-1>", self._workspace_release)
         self.workspace_canvas.bind("<MouseWheel>", self._workspace_mousewheel)
         self.workspace_canvas.bind("<Shift-MouseWheel>", self._workspace_shift_mousewheel)
+        self.workspace_canvas.bind("<Configure>", self._on_workspace_resize)
 
         self._draw_workspace_hint()
+
+    def _on_workspace_resize(self, event):
+        """
+        Keep fixed display panels filling the workspace when the window is resized.
+        """
+        if self.display_mode_var.get() == "FIXED":
+            if self.fixed_panel is None or self.fixed_panel.window_id is None:
+                return
+
+            w = max(MIN_PANEL_W, int(event.width) - 28)
+            h = max(MIN_PANEL_H, int(event.height) - 28)
+
+            self.fixed_panel.panel_x = 14
+            self.fixed_panel.panel_y = 14
+            self.fixed_panel.panel_w = w
+            self.fixed_panel.panel_h = h
+
+            self.workspace_canvas.coords(self.fixed_panel.window_id, 14, 14)
+            self.workspace_canvas.itemconfigure(self.fixed_panel.window_id, width=w, height=h)
+
+            if self.fixed_panel.shadow_id is not None:
+                self.workspace_canvas.coords(self.fixed_panel.shadow_id, 22, 22, w + 22, h + 22)
+
+            self.workspace_canvas.configure(scrollregion=(0, 0, max(w + 40, WORKSPACE_W), max(h + 40, WORKSPACE_H)))
+            return
+
+        if self.display_mode_var.get() == "FIXED_2":
+            active = [p for p in self.fixed_2_panels if p is not None]
+            if not active:
+                return
+
+            total_w = max(MIN_PANEL_W * 2 + 40, int(event.width) - 28)
+            total_h = max(MIN_PANEL_H, int(event.height) - 28)
+            gap = 12
+            slot_w = max(MIN_PANEL_W, int((total_w - gap) / 2))
+            slot_h = max(MIN_PANEL_H, total_h)
+
+            for slot, panel in enumerate(self.fixed_2_panels[:2]):
+                if panel is None or panel.window_id is None:
+                    continue
+
+                x = 14 if slot == 0 else 14 + slot_w + gap
+                y = 14
+
+                panel.panel_x = x
+                panel.panel_y = y
+                panel.panel_w = slot_w
+                panel.panel_h = slot_h
+
+                self.workspace_canvas.coords(panel.window_id, x, y)
+                self.workspace_canvas.itemconfigure(panel.window_id, width=slot_w, height=slot_h)
+
+                if panel.shadow_id is not None:
+                    self.workspace_canvas.coords(panel.shadow_id, x + 8, y + 8, x + slot_w + 8, y + slot_h + 8)
+
+            self.workspace_canvas.configure(
+                scrollregion=(0, 0, max(total_w + 40, WORKSPACE_W), max(total_h + 40, WORKSPACE_H))
+            )
 
     def _draw_workspace_grid(self):
         self.workspace_canvas.delete("workspace_grid")
@@ -765,38 +1020,18 @@ class MainDashboard(tk.Tk):
     def _draw_workspace_hint(self):
         self.workspace_canvas.delete("workspace_hint")
         self._draw_workspace_grid()
-        self._draw_workspace_grid()
         if self.panels:
             return
 
-        self.workspace_canvas.create_rectangle(
-            62,
-            52,
-            760,
-            150,
-            fill=COLORS["panel"],
-            outline=COLORS["slot_border"],
-            width=1,
-            tags=("workspace_hint",),
-        )
-        self.workspace_canvas.create_text(
-            80,
-            70,
-            text="QUANT TERMINAL WORKSPACE",
-            anchor="nw",
-            fill=COLORS["text"],
-            font=FONT_TITLE,
-            tags=("workspace_hint",),
-        )
-        self.workspace_canvas.create_text(
-            80,
-            108,
-            text="DRAG BUILDING BLOCKS FROM LEFT SIDEBAR. MOVE BY HEADER. RESIZE WITH BOTTOM-RIGHT GRIP.",
-            anchor="nw",
-            fill=COLORS["muted"],
-            font=("Segoe UI", 10),
-            tags=("workspace_hint",),
-        )
+        w = max(1000, self.workspace_canvas.winfo_width())
+        h = max(700, self.workspace_canvas.winfo_height())
+        cx = w // 2
+        cy = h // 2
+
+        self.workspace_canvas.create_text(cx, cy - 60, text="▦", anchor="center", fill=COLORS["muted"], font=("Segoe UI", 34, "bold"), tags=("workspace_hint",))
+        self.workspace_canvas.create_text(cx, cy - 8, text="WORKSPACE", anchor="center", fill="#E9EEF5", font=("Segoe UI", 22, "bold"), tags=("workspace_hint",))
+        self.workspace_canvas.create_text(cx, cy + 34, text="Free mode: open multiple modules, move by header, resize with grip.", anchor="center", fill="#A7B0BA", font=("Segoe UI", 11), tags=("workspace_hint",))
+
 
     def _resize_block_canvas(self, event):
         self.block_canvas.itemconfigure(self.block_canvas_window, width=event.width)
@@ -827,10 +1062,16 @@ class MainDashboard(tk.Tk):
             return COLORS["success"], COLORS["success_soft"]
         if "pipeline" in lower:
             return COLORS["warning"], COLORS["warning_soft"]
+        if "market" in lower:
+            return COLORS["info"], COLORS["info_soft"]
+        if "trade" in lower:
+            return COLORS["success"], COLORS["success_soft"]
         return COLORS["accent"], COLORS["accent_soft"]
 
     def _filtered_blocks(self) -> dict[str, dict]:
         q = self.block_search_var.get().strip().lower()
+        if q in {"search modules...", "search modules"}:
+            q = ""
         return {
             name: info
             for name, info in self.registry.blocks.items()
@@ -842,12 +1083,12 @@ class MainDashboard(tk.Tk):
             child.destroy()
 
         blocks = self._filtered_blocks()
-        self.block_count_label.config(text=f"{len(blocks)} / {len(self.registry.blocks)} blocks")
+        self.block_count_label.config(text=f"{len(blocks)} / {len(self.registry.blocks)} modules")
 
         if not blocks:
             tk.Label(
                 self.block_list_frame,
-                text="NO BUILDING BLOCKS FOUND.",
+                text="NO MODULES FOUND.",
                 bg=COLORS["panel"],
                 fg=COLORS["muted"],
                 font=FONT_MAIN,
@@ -858,88 +1099,121 @@ class MainDashboard(tk.Tk):
         if not self.selected_block_name.get() or self.selected_block_name.get() not in self.registry.blocks:
             self.selected_block_name.set(next(iter(self.registry.blocks.keys()), ""))
 
+        groups = {
+            "MARKET RESEARCH": [],
+            "TRADING & EXECUTION": [],
+            "DATA & SYSTEM": [],
+            "GENERAL": [],
+        }
+
         for block_name, info in blocks.items():
-            self._create_sidebar_card(block_name, info)
+            lower = block_name.lower()
+            if "market" in lower or "correlation" in lower or "season" in lower or "session" in lower:
+                groups["MARKET RESEARCH"].append((block_name, info))
+            elif "trade" in lower or "live" in lower:
+                groups["TRADING & EXECUTION"].append((block_name, info))
+            elif "pipeline" in lower or "catalog" in lower or "registry" in lower or "data" in lower:
+                groups["DATA & SYSTEM"].append((block_name, info))
+            else:
+                groups["GENERAL"].append((block_name, info))
+
+        for group_name, items in groups.items():
+            if not items:
+                continue
+
+            group = tk.Frame(self.block_list_frame, bg=COLORS["panel"])
+            group.pack(fill="x", padx=4, pady=(8, 4))
+
+            head = tk.Frame(group, bg=COLORS["panel"])
+            head.pack(fill="x", padx=4, pady=(0, 3))
+
+            tk.Label(
+                head,
+                text=group_name,
+                bg=COLORS["panel"],
+                fg=COLORS["text"],
+                font=FONT_HEAD,
+                anchor="w",
+            ).pack(side="left")
+
+            tk.Label(
+                head,
+                text=str(len(items)),
+                bg=COLORS["panel"],
+                fg=COLORS["success"],
+                font=FONT_TINY,
+                anchor="e",
+            ).pack(side="right")
+
+            line = tk.Frame(group, bg=COLORS["slot_border"], height=1)
+            line.pack(fill="x", padx=4, pady=(0, 3))
+
+            for block_name, info in items:
+                self._create_sidebar_card(block_name, info)
 
     def _create_sidebar_card(self, block_name: str, info: dict):
+        """
+        Clean Bloomberg-style module row.
+        """
         selected = self.selected_block_name.get() == block_name
-        accent, soft = self._card_accent(block_name)
+        accent, _soft = self._card_accent(block_name)
 
-        outer = tk.Frame(
+        row_bg = "#101A23" if selected else COLORS["panel"]
+        border_bg = accent if selected else COLORS["panel"]
+
+        row = tk.Frame(
             self.block_list_frame,
-            bg=accent if selected else COLORS["button_border"],
-        )
-        outer.pack(fill="x", padx=4, pady=6)
-
-        card = tk.Frame(
-            outer,
-            bg=soft if selected else COLORS["button"],
+            bg=border_bg,
+            height=42,
             cursor="hand2",
         )
-        card.pack(fill="x", padx=1, pady=1)
+        row.pack(fill="x", padx=8, pady=2)
+        row.pack_propagate(False)
 
-        top = tk.Frame(card, bg=card["bg"])
-        top.pack(fill="x", padx=12, pady=(11, 4))
+        inner = tk.Frame(row, bg=row_bg, cursor="hand2")
+        inner.pack(fill="both", expand=True, padx=(2 if selected else 0), pady=(1 if selected else 0))
 
-        tk.Label(
-            top,
+        dot = tk.Label(
+            inner,
             text="●",
-            bg=card["bg"],
+            bg=row_bg,
             fg=accent,
-            font=FONT_HEAD,
-        ).pack(side="left")
-
-        tk.Label(
-            top,
-            text=info["display"],
-            bg=card["bg"],
-            fg=COLORS["text"],
-            font=FONT_HEAD,
-            anchor="w",
-        ).pack(side="left", padx=(8, 0), fill="x", expand=True)
-
-        path_text = str(info["folder"].relative_to(self.quant_root)).replace("\\", "/")
-        tk.Label(
-            card,
-            text=path_text,
-            bg=card["bg"],
-            fg=COLORS["muted"],
-            font=FONT_SMALL,
-            anchor="w",
-            wraplength=285,
-            justify="left",
-        ).pack(fill="x", padx=12, pady=(0, 8))
-
-        footer = tk.Frame(card, bg=card["bg"])
-        footer.pack(fill="x", padx=12, pady=(0, 11))
-
-        tk.Label(
-            footer,
-            text="DRAG TO WORKSPACE",
-            bg=card["bg"],
-            fg=COLORS["muted"],
-            font=FONT_SMALL,
-        ).pack(side="left")
-
-        tk.Button(
-            footer,
-            text="ADD",
-            bg=COLORS["panel"],
-            fg=accent,
-            activebackground=COLORS["button_hover"],
-            activeforeground=accent,
-            relief="solid",
-            bd=1,
-            padx=8,
-            pady=3,
+            font=("Segoe UI", 8),
             cursor="hand2",
-            command=lambda b=block_name: self.add_panel_auto(b),
-            font=("Segoe UI", 8, "bold"),
-        ).pack(side="right")
+        )
+        dot.pack(side="left", padx=(12, 10))
 
-        for w in (outer, card, top, footer):
-            w.bind("<ButtonPress-1>", lambda e, b=block_name: self.start_drag(b, e))
-            w.bind("<Double-1>", lambda _e, b=block_name: self.add_panel_auto(b))
+        title = tk.Label(
+            inner,
+            text=info["display"],
+            bg=row_bg,
+            fg=COLORS["text"],
+            font=("Segoe UI", 10, "bold"),
+            anchor="w",
+            cursor="hand2",
+        )
+        title.pack(side="left", fill="x", expand=True)
+
+        arrow = tk.Label(
+            inner,
+            text="›",
+            bg=row_bg,
+            fg=COLORS["text"],
+            font=("Segoe UI", 16, "bold"),
+            cursor="hand2",
+        )
+        arrow.pack(side="right", padx=(6, 12))
+
+        def open_block(_event=None, b=block_name):
+            self.selected_block_name.set(b)
+            self.add_panel_auto(b)
+            self._refresh_sidebar()
+
+        for w in (row, inner, dot, title, arrow):
+            w.bind("<Button-1>", open_block)
+            w.bind("<Double-1>", open_block)
+            w.bind("<ButtonPress-3>", lambda e, b=block_name: self.start_drag(b, e))
+
 
     def start_drag(self, block_name: str, event):
         self.dragging_block_name = block_name
@@ -975,6 +1249,18 @@ class MainDashboard(tk.Tk):
 
     def _on_global_release(self, event):
         if not self.dragging_block_name:
+            return
+
+        if self.display_mode_var.get() == "FIXED":
+            block_name = self.dragging_block_name
+            self.cancel_drag(clear_status=False)
+            self.open_fixed_panel(block_name)
+            return
+
+        if self.display_mode_var.get() == "FIXED_2":
+            block_name = self.dragging_block_name
+            self.cancel_drag(clear_status=False)
+            self.open_fixed_2_panel(block_name)
             return
 
         if self._pointer_inside_workspace(event.x_root, event.y_root):
@@ -1019,11 +1305,115 @@ class MainDashboard(tk.Tk):
             self.update_status("Drag cancelled.")
 
     def add_panel_auto(self, block_name: str):
+        if self.display_mode_var.get() == "FIXED":
+            self.open_fixed_panel(block_name)
+            return
+
+        if self.display_mode_var.get() == "FIXED_2":
+            self.open_fixed_2_panel(block_name)
+            return
+
         offset = self.next_panel_offset * 34
         self.next_panel_offset = (self.next_panel_offset + 1) % 12
         x = 80 + offset
         y = 90 + offset
         self.add_panel(block_name, x, y)
+
+    def open_fixed_panel(self, block_name: str):
+        """
+        Opens exactly one full-workspace panel.
+        Existing panel is removed first.
+        """
+        for panel in list(self.panels):
+            panel.close()
+        self.panels.clear()
+        self.workspace_canvas.delete("all")
+        self._draw_workspace_grid()
+
+        # Use current visible canvas size. Fallback to reasonable size during first render.
+        self.update_idletasks()
+        w = max(MIN_PANEL_W, self.workspace_canvas.winfo_width() - 28)
+        h = max(MIN_PANEL_H, self.workspace_canvas.winfo_height() - 28)
+
+        panel = DashboardPanel(
+            self.workspace_canvas,
+            app=self,
+            block_name=block_name,
+            x=14,
+            y=14,
+            width=w,
+            height=h,
+        )
+        panel.resize_grip.place_forget()
+
+        # Disable move/resize bindings in fixed mode.
+        for widget in (panel.header, panel.title_label):
+            widget.unbind("<ButtonPress-1>")
+            widget.unbind("<B1-Motion>")
+            widget.unbind("<ButtonRelease-1>")
+
+        self.panels.append(panel)
+        self.fixed_panel = panel
+        self.workspace_canvas.configure(scrollregion=(0, 0, max(w + 40, WORKSPACE_W), max(h + 40, WORKSPACE_H)))
+        self.update_status(f"Fixed display: {display_name(block_name)}")
+
+    def open_fixed_2_panel(self, block_name: str):
+        """
+        Opens/replaces a module in one of two fixed half-screen slots.
+        Slot 0 = left, Slot 1 = right.
+        """
+        self.workspace_canvas.delete("workspace_hint")
+        self._draw_workspace_grid()
+        self.update_idletasks()
+
+        total_w = max(MIN_PANEL_W * 2 + 40, self.workspace_canvas.winfo_width() - 28)
+        total_h = max(MIN_PANEL_H, self.workspace_canvas.winfo_height() - 28)
+        gap = 12
+        slot_w = max(MIN_PANEL_W, int((total_w - gap) / 2))
+        slot_h = max(MIN_PANEL_H, total_h)
+
+        slot = self.fixed_2_next_slot % 2
+        self.fixed_2_next_slot = (self.fixed_2_next_slot + 1) % 2
+
+        # If slot already exists, remove it.
+        if len(self.fixed_2_panels) > slot and self.fixed_2_panels[slot] is not None:
+            old_panel = self.fixed_2_panels[slot]
+            try:
+                old_panel.close()
+            except Exception:
+                pass
+
+        while len(self.fixed_2_panels) < 2:
+            self.fixed_2_panels.append(None)
+
+        x = 14 if slot == 0 else 14 + slot_w + gap
+        y = 14
+
+        panel = DashboardPanel(
+            self.workspace_canvas,
+            app=self,
+            block_name=block_name,
+            x=x,
+            y=y,
+            width=slot_w,
+            height=slot_h,
+        )
+        panel.resize_grip.place_forget()
+
+        for widget in (panel.header, panel.title_label):
+            widget.unbind("<ButtonPress-1>")
+            widget.unbind("<B1-Motion>")
+            widget.unbind("<ButtonRelease-1>")
+
+        self.fixed_2_panels[slot] = panel
+
+        # Rebuild panel list cleanly from available fixed-2 panels.
+        self.panels = [p for p in self.fixed_2_panels if p is not None]
+
+        self.workspace_canvas.configure(
+            scrollregion=(0, 0, max(total_w + 40, WORKSPACE_W), max(total_h + 40, WORKSPACE_H))
+        )
+        self.update_status(f"Fixed 2 display slot {slot + 1}: {display_name(block_name)}")
 
     def add_panel(self, block_name: str, x: int, y: int, width: int = DEFAULT_PANEL_W, height: int = DEFAULT_PANEL_H):
         self.workspace_canvas.delete("workspace_hint")
@@ -1051,15 +1441,28 @@ class MainDashboard(tk.Tk):
             max_y = max(max_y, panel.panel_y + panel.panel_h + 200)
         self.workspace_canvas.configure(scrollregion=(0, 0, max_x, max_y))
 
-    def clear_workspace(self):
-        if not self.panels:
+    def clear_workspace(self, force: bool = False, ask: bool = True):
+        if not self.panels and not force:
             return
-        if not messagebox.askyesno("Clear Workspace", "Alle Panels entfernen?"):
-            return
+        if ask and not force:
+            if not messagebox.askyesno("Clear Workspace", "Alle Panels entfernen?"):
+                return
+
         for panel in list(self.panels):
             panel.close()
         self.panels.clear()
-        self._draw_workspace_hint()
+        self.fixed_panel = None
+        self.fixed_2_panels = []
+        self.fixed_2_next_slot = 0
+        self.workspace_canvas.delete("all")
+
+        if self.display_mode_var.get() == "FIXED":
+            self._draw_fixed_hint()
+        elif self.display_mode_var.get() == "FIXED_2":
+            self._draw_fixed_2_hint()
+        else:
+            self._draw_workspace_hint()
+
         self.update_status("Workspace cleared.")
 
     def refresh_blocks(self):
@@ -1088,6 +1491,11 @@ class MainDashboard(tk.Tk):
         messagebox.showinfo("Layout", f"Layout saved:\n{self.layout_file}")
 
     def load_layout(self):
+        self.display_mode_var.set("FREE")
+        self.fixed_panel = None
+        self.fixed_2_panels = []
+        self.fixed_2_next_slot = 0
+
         if not self.layout_file.exists():
             messagebox.showwarning("Layout", f"No layout file found:\n{self.layout_file}")
             return
